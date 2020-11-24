@@ -1,0 +1,16 @@
+<h1>Show page for "<%=@post.title.capitalize%>"</h1>
+
+<p> Post Content: <%= @post.content%><br> </p>
+
+<%if !@post.likes%>
+    <%@post.likes = 0%>
+<%end%>
+<p> Likes: <%= @post.likes%> </p>
+
+Blogger: <%= link_to @post.blogger.name, blogger_path( @post.blogger) %><br>
+Destination: <%= link_to @post.destination.name, destination_path(@post.destination) %>
+
+<%= form_for @post do |f|%>
+<%= f.hidden_field :likes, value: @post.add_like%>
+<%= f.submit "Like Post"%>
+<% end %>

@@ -1,0 +1,10 @@
+<h1><%= @blogger.name%>'s Show Page </h1>
+<% if @blogger.posts.count != 0%>
+
+    <h3>Total number of likes on all posts:</h3>
+    <%=@blogger.number_likes %>
+    <h3>Featured Post</h3>
+    <%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post) %>
+<%else%>
+    <h2>This blogger has not made a post yet!</h2>
+<%end%>
